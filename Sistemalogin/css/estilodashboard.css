@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+
+
+}
+
+body {
+    background-color: azure;
+    display: flex;
+
+
+}
+
+.menu {
+    background-color: brown;
+    flex: 0 0 20%;
+
+}
+
+.contenido{
+    background-color: blue;
+    
+
+}

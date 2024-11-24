@@ -21,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["custId"])) {
         try {
-            $sentencia = $pdo->prepare("update usuarios set usrname=?, password=?, perfil=? where id=?;");
-            $sentencia->execute([$_POST["datusuario"], $_POST["datpassword"], $_POST["datperfil"], $_POST["custId"]]);
-            echo $tmpdatusuario . "Modificacion con exito <br>";
+            $sentencia = $pdo->prepare("update usuarios set username=?, password=?, perfil=? where id=?;");
+            $sentencia->execute([$_POST["datusuario"],$_POST["datpassword"],$_POST["datperfil"], $_POST["custId"]]);
+            echo $tmpdatusuario. " Modificado con exito <br>";
         } catch (PDOException $e) {
             echo "Hubo un error no se pudo modificar .... <br>";
             echo $e->getMessage();
@@ -31,13 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
 
-        $query = $pdo->query("select id,username,password,perfil from usuarios");
+        $query = $pdo->query("select id,username,password,perfil from usuarios where username='" .$tmpdatusuario."'");
         $fila = $query->fetch(PDO::FETCH_ASSOC);
 
 ?>
         <form action="" method="POST">
-            <input type="hidden" name="custId" id="custoId"  value=" <?php echo $fila['id'] ?>">
 
+            <input type="hidden" name="custId" id="custId"  value=" <?php echo $fila['id'] ?>">
+            <br>
             <label for="datusuario"> usuario</label>
             <input type="text" name="datusuario" id="datusuario" value="<?php echo $fila['username'] ?>">
             <br>
@@ -62,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form action="" method="POST">
     <label for="">QUE USUARIO DESEAS MODIFICAR</label>
-    <input type="text" name="datusuario" id="datusuario">
+    <input type="text" name="datusuario" id="datusuario" >
     <br>
     <button type="submit">bucar Usuario</button>
 </form>

@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
         <form action="" method="POST">
-            <input type="hidden" name="custID" id="<?php echo $fila['id'] ?>">
+            <input type="hidden" name="custId" id="custoId"  value=" <?php echo $fila['id'] ?>">
+
             <label for="datusuario"> usuario</label>
             <input type="text" name="datusuario" id="datusuario" value="<?php echo $fila['username'] ?>">
             <br>

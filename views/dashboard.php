@@ -43,7 +43,7 @@
                     echo "<h1>BIENVENIDOS AL SISTEMA</h1>";
                     break;
                     case 'ver':
-                    echo "<iframe src='" . get_views("verdatos.php") . "'></iframe>";
+                    echo "<iframe src='" . get_controllers("controladorUsuario.php") . "'></iframe>";
                     break;
                     case 'ingresar':
                     echo "<iframe src='" . get_views("ingresardatos.php") . "'></iframe>";
@@ -54,8 +54,8 @@
                     case 'eliminar':
                     echo "<iframe src='" . get_views("eliminardatos.php") . "'></iframe>";
                     break;
-                  }
-                  echo $opcion;
+                }
+                echo $opcion;
 
             }
         ?>

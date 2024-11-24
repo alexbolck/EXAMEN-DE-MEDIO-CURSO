@@ -10,7 +10,7 @@ class modeloUsuario{
     //al instanciar la clase debo obtener ;a conexion
     public function __construct()
     {
-       $this->conexion = Conexion::obtenerConexion();
+    $this->conexion = Conexion::obtenerConexion();
     }
     // debe hacer un metodo para hacer select
     public function obtenerUsuarios(){
@@ -20,9 +20,9 @@ class modeloUsuario{
     }
     // debe hacer un metodo para hacer insert
 
-    public function insertarUsuarios($username,$password,$perfil){
+    public function insertarUsuarios($username, $password, $perfil){
         $query =
-        $query = $this->conexion->query('insert into usuarios(username,passwrord,perfil) values (:username, :password, :perfil)');
+        $query = $this->conexion->query('insert into usuarios(username,password,perfil) values (:username, :password, :perfil)');
         $stmt = $this->conexion->prepare($query);
         $stmt->bindParam('username',$username);
         $stmt->bindParam('password',$password);

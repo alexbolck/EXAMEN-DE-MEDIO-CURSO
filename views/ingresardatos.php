@@ -14,11 +14,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $tmpdatpassword =  $_POST["datpassword"];
     $tmpdatperfil =  $_POST["datperfil"];
 
-    $conexion = new conexion($host,$namedb,$userdb,$paswordb);
+    $conexion = new conexion(DB_HOST,DB_NAME,DB_USER,DB_PASS);
     $pdo = $conexion->obtenerConexion();
     try {
         $sentencia = $pdo->prepare("INSERT INTO usuarios (username, password, perfil) VALUES (?, ?, ?);");
-        $sentencia->execute([$tmpdatusuario,$tmpdatpassword,$tmpdatperfil]);
+        $sentencia->execute([$tmpdatusuario, $tmpdatpassword, $tmpdatperfil]);
         echo "USUARIO REGISTRADO CON EXITO <br>";
         }catch(PDOException $e){
             echo "Hubo un error .... <br>";

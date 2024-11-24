@@ -9,14 +9,14 @@ if (!isset($_SESSION["txtusername"])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/connect/conexion.php';
 
-$conexion = new conexion($host, $namedb, $userdb, $paswordb);
-$pdo = $conexion->obtenerConexion();
+// $conexion = new conexion($host, $namedb, $userdb, $paswordb);
+// $pdo = $conexion->obtenerConexion();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $tmpdatusuario = $_POST["datusuario"];
 
-    $conexion = new conexion($host, $namedb, $userdb, $paswordb);
+    $conexion = new conexion(DB_HOST, DB_NAME, DB_USER, DB_PASS);
     $pdo = $conexion->obtenerConexion();
 
     if (isset($_POST["custId"])) {

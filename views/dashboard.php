@@ -46,7 +46,7 @@
                     echo "<iframe src='" . get_controllers("controladorUsuario.php") . "'></iframe>";
                     break;
                     case 'ingresar':
-                    echo "<iframe src='" . get_views("ingresardatos.php") . "'></iframe>";
+                    echo "<iframe src='" . get_controllers("controladorIngresarUsuario.php") . "'></iframe>";
                     break;
                     case 'modificar':
                     echo "<iframe src='" . get_views("modificardatos.php") . "'></iframe>";

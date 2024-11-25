@@ -21,14 +21,18 @@ class modeloUsuario{
     // debe hacer un metodo para hacer insert
 
     public function insertarUsuarios($username, $password, $perfil){
-        $query =
-        $query = $this->conexion->query('insert into usuarios(username,password,perfil) values (:username, :password, :perfil)');
+        
+
+        $query = 'INSERT INTO usuarios(username, password, perfil) VALUES (:username, :password, :perfil)';
         $stmt = $this->conexion->prepare($query);
         $stmt->bindParam('username',$username);
         $stmt->bindParam('password',$password);
         $stmt->bindParam('perfil',$perfil);
+
+        
         return $stmt->execute();
         }
+        
     // debe hacer un metodo para hacer delet
 }
 ?>

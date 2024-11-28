@@ -25,14 +25,49 @@ class modeloUsuario{
 
         $query = 'INSERT INTO usuarios(username, password, perfil) VALUES (:username, :password, :perfil)';
         $stmt = $this->conexion->prepare($query);
-        $stmt->bindParam('username',$username);
-        $stmt->bindParam('password',$password);
-        $stmt->bindParam('perfil',$perfil);
+        $stmt->bindParam(':username',$username);
+        $stmt->bindParam(':password',$password);
+        $stmt->bindParam(':perfil',$perfil);
 
         
         return $stmt->execute();
-        }
+    }
         
     // debe hacer un metodo para hacer delet
+    public function eliminarUsuarioPorNombre($username){
+
+        $query = "delete from usuarios where username = :username";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':username',$username);
+        
+        return $stmt->execute();
+        }
+
+    // debe hacer un metodo para hacer update
+
+    public function actualizarUsuario($id, $username, $password, $perfil){
+        $query = "update usuarios set username=:username, password= :password, perfil= :perfil where  id = :id";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':perfil', $perfil);
+
+        
+        return $stmt->execute();
+    }
+
+    //obtiene un solo usuario por su nombre
+    public function obtenerUsuarioPorNombre($username)
+    {
+        $query = 'select id, username, password, perfil from usuarios where username = :username';
+        
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':username', $username);
+
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
+
 ?>

@@ -23,10 +23,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $mensaje= "usuario registrado con exito.....<br>" ;
         } catch (PDOException $e) {
             $mensaje= "Hubo un error ....<br>".$e->getMessage();
-            exit();
         }
+        
+
 
 }
-
 mostrarFormularioIngreso($mensaje);
 exit();

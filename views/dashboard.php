@@ -49,10 +49,10 @@
                     echo "<iframe src='" . get_controllers("controladorIngresarUsuario.php") . "'></iframe>";
                     break;
                     case 'modificar':
-                    echo "<iframe src='" . get_views("modificardatos.php") . "'></iframe>";
+                    echo "<iframe src='" . get_controllers("controladorActualizarUsuario.php") . "'></iframe>";
                     break;
                     case 'eliminar':
-                    echo "<iframe src='" . get_views("eliminardatos.php") . "'></iframe>";
+                    echo "<iframe src='" . get_controllers("controladorEliminarUsuario.php") . "'></iframe>";
                     break;
                 }
                 echo $opcion;

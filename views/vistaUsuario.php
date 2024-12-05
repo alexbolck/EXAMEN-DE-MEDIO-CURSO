@@ -26,7 +26,7 @@ function mostrarUsuarios($usuarios)
         <td> <?php echo $usuario['password'] ?> </td>
         <td> <?php echo $usuario['perfil'] ?> </td>
         <td> <a href="controladorEliminarUsuario.php"> eliminar</a></td>
-        <td> <a href="controladorActualizar.php<?php $usuario['id']?>"> editar</a> </td>
+        <td> <a href="controladorActualizarUsuario.php"> editar</a> </td>
       </tr>
     <?php
     }

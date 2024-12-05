@@ -1,12 +1,14 @@
 <?php
 
-session_start();
+if(session_status()== PHP_SESSION_NONE){
+    session_start();
+}
 
 require_once $_SERVER['DOCUMENT_ROOT']. '/models/modeloUsuario.php';
 require_once $_SERVER['DOCUMENT_ROOT']. '/views/vistaActualizarUsuario.php';
     
 if(!isset( $_SESSION["txtusername"])) {
-header('Location: ' .get_urlBase('index.php'));
+header('Location: ' .get_views('vistaLogin.php'));
 
 }
 

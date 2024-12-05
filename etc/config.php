@@ -25,11 +25,16 @@
     function get_controllers($arg1){
         return get_path('controllers',$arg1);
     }
+    function get_views_disk($arg1){
+        return $_SERVER['DOCUMENT_ROOT'] . '/views/' .$arg1;
+
+
+    }
+    function get_controllers_disk($arg1){
+        return $_SERVER['DOCUMENT_ROOT'] . '/controllers/' .$arg1;
+    }
+
     //echo 'algo';
     //echo get_UrlBase('');
     //echo get_models('modeloUsuario.php');
-
-    //echo $_urlBase;
-    //echo "<br>";
-    //echo get_UrlBase('pagina.html');
 ?>

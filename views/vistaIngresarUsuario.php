@@ -2,6 +2,7 @@
     function mostrarFormularioIngreso($mensaje){
 
         if(empty($mensaje)){
+            
         
     
 ?>
